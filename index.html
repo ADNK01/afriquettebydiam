@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Afriquette by Diam - Coach en Étiquette & Leadership</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #d4af37 0%, #f4e68c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-number {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            color: #d4af37;
+            font-weight: 300;
+        }
+        .hover-transform {
+            transition: all 0.3s ease;
+        }
+        .hover-transform:hover {
+            transform: translateY(-5px);
+        }
+        .elegant-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .image-placeholder {
+            background: linear-gradient(135deg, #d4af37 0%, #f4e68c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1a1a1a;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-lg">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-playfair font-bold gradient-text">
+                    AFRIQUETTE BY DIAM
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="hover:text-yellow-400 transition">À propos</a>
+                    <a href="#services" class="hover:text-yellow-400 transition">Services</a>
+                    <a href="#testimonials" class="hover:text-yellow-400 transition">Témoignages</a>
+                    <a href="#contact" class="hover:text-yellow-400 transition">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0">
+                    <div class="section-number mb-4">DEPUIS 2015</div>
+                    <h1 class="text-5xl lg:text-7xl font-playfair font-bold mb-6">
+                        POUR LES<br>
+                        <span class="gradient-text">LEADERS</span><br>
+                        D'AUJOURD'HUI
+                    </h1>
+                    <p class="text-xl mb-8 text-gray-300">
+                        Transformer des Vies.<br>
+                        Transformer des Carrières.<br>
+                        Transformer des Mentalités.<br>
+                        <span class="gradient-text font-semibold">Now & Forever.</span>
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-yellow-600 hover:bg-yellow-700 text-black px-8 py-3 rounded-lg font-semibold transition hover-transform">
+                            Découvrir mes services
+                        </button>
+                        <button class="border border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-black px-8 py-3 rounded-lg font-semibold transition">
+                            Mon histoire
+                        </button>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 lg:pl-12">
+                    <div class="image-placeholder w-full h-96 rounded-lg">
+                       https://i.imgur.com/zqrZCN6.jpeg
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="section-number mb-8">.01 // Vous êtes au bon endroit</div>
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl lg:text-5xl font-playfair font-bold mb-6">
+                        Coach & Experte en<br>
+                        <span class="gradient-text">Relations Publiques</span><br>
+                        depuis 10 ans
+                    </h2>
+                    <p class="text-lg text-gray-300 mb-6">
+                        Je t'aide à révéler, façonner et exprimer ton leadership pour réussir dans tous les domaines de ta vie.
+                    </p>
+                    <h3 class="text-3xl font-playfair font-bold mb-4 gradient-text">
+                        Je suis MARIAME DIAKITE
+                    </h3>
+                    <p class="text-gray-300 mb-8">
+                        Experte en Relations Publiques chez Diam Partners, Executive Football et Coach en Étiquette. 
+                        J'ai (laborieusement) sélectionné les meilleures stratégies pour vous permettre de transformer 
+                        votre vie et bâtir une carrière d'exception - basée sur des fondations solides.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mb-8">
+                        <span class="bg-yellow-600 text-black px-4 py-2 rounded-lg text-sm font-semibold">
+                            <i class="fas fa-star mr-2"></i>PR Expert
+                        </span>
+                        <span class="bg-yellow-600 text-black px-4 py-2 rounded-lg text-sm font-semibold">
+                            <i class="fas fa-futbol mr-2"></i>Football Executive
+                        </span>
+                        <span class="bg-yellow-600 text-black px-4 py-2 rounded-lg text-sm font-semibold">
+                            <i class="fas fa-crown mr-2"></i>Etiquette Coach
+                        </span>
+                        <span class="bg-yellow-600 text-black px-4 py-2 rounded-lg text-sm font-semibold">
+                            <i class="fas fa-users mr-2"></i>Co-founder Women
+                        </span>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="image-placeholder w-full h-96 rounded-lg">
+                        https://i.imgur.com/si4Cucw.jpeg
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl font-playfair font-bold mb-8">
+                <span class="gradient-text">Salam,</span><br>
+                from the inside Out
+            </h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="image-placeholder h-64 rounded-lg">
+                        https://i.imgur.com/XOkr1W1.jpeg
+                    </div>
+                    <div class="image-placeholder h-64 rounded-lg">
+                        https://i.imgur.com/cEwy6hg.jpeg
+                    </div>
+                    <div class="image-placeholder h-64 rounded-lg">
+                        [IMAGE 3 - AFCON 2025 Morocco]
+                    </div>
+                </div>
+                <p class="text-lg text-gray-300 mb-8">
+                    De mes débuts dans le football africain à la création des "Élites au Féminin", 
+                    mon parcours a été guidé par une mission : <strong class="gradient-text">empowerer</strong> 
+                    les femmes africaines à révéler leur potentiel de leadership.
+                </p>
+                <button class="bg-transparent border-2 border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-black px-8 py-3 rounded-lg font-semibold transition hover-transform">
+                    <i class="fas fa-book-open mr-2"></i>Story time y'all
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="section-number mb-8">.02 // Il est temps de changer votre vie</div>
+            <h2 class="text-4xl lg:text-5xl font-playfair font-bold mb-12 text-center">
+                Transforme ta vie en construisant<br>
+                <span class="gradient-text">un Leadership qui te ressemble</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="elegant-card p-8 rounded-lg hover-transform">
+                    <div class="text-yellow-400 text-4xl mb-4">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3 class="text-2xl font-playfair font-bold mb-4">Coaching en Étiquette</h3>
+                    <p class="text-gray-300 mb-6">
+                        Maîtrise l'art du savoir-vivre et de l'élégance pour briller dans tous tes environnements professionnels et sociaux.
+                    </p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i>Protocole d'affaires</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i>Communication non-verbale</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i>Présence et charisme</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i>Élégance personnelle</li>
+                    </ul>
+                </div>
+
+                <div class="elegant-card p-8 rounded-lg hover-transform">
+                    <div class="text-yellow-400 text-4xl mb-4">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 class="text-2xl font-playfair font-bold mb-4">Leadership Féminin</h3>
+                    <p class="text-gray-300 mb-6">
+                        Développe ton leadership authentique et assume ton identité de femme leader dans un monde en transformation.
+                    </p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i>Développement du mindset</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i>Stratégies de communication</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i>Gestion des équipes</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i>Vision et influence</li>
+                    </ul>
+                </div>
+
+                <div class="elegant-card p-8 rounded-lg hover-transform">
+                    <div class="text-yellow-400 text-4xl mb-4">
+                        <i class="fas fa-megaphone"></i>
+                    </div>
+                    <h3 class="text-2xl font-playfair font-bold mb-4">Relations Publiques</h3>
+                    <p class="text-gray-300 mb-6">
+                        Construis ton image de marque personnelle et développe ton réseau pour maximiser ton impact professionnel.
+                    </p>
+                    <ul class="text-sm text-gray-400 space-y-2">
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i>Personal branding</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i>Media training</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i>Networking stratégique</li>
+                        <li><i class="fas fa-check text-yellow-400 mr-2"></i>Gestion de crise</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button class="bg-yellow-600 hover:bg-yellow-700 text-black px-8 py-3 rounded-lg font-semibold transition hover-transform">
+                    <i class="fas fa-calendar mr-2"></i>TRAVAILLONS ENSEMBLE
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievement Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-playfair font-bold mb-4">
+                    du Chaos à l'<span class="gradient-text">Ordre</span>
+                </h2>
+                <p class="text-xl text-gray-300">Des résultats concrets qui parlent d'eux-mêmes</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-5xl font-bold gradient-text mb-2">900+</div>
+                    <p class="text-gray-300">Femmes Empowered</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold gradient-text mb-2">10+</div>
+                    <p class="text-gray-300">Années d'Expérience</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold gradient-text mb-2">50+</div>
+                    <p class="text-gray-300">Joueuses en Reconversion</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-5xl font-bold gradient-text mb-2">100%</div>
+                    <p class="text-gray-300">Transformation Garantie</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="section-number mb-8">.03 // Elles m'ont fait confiance</div>
+            <h2 class="text-4xl font-playfair font-bold mb-12 text-center">
+                Témoignages de <span class="gradient-text">Transformation</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="elegant-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="image-placeholder w-16 h-16 rounded-full mr-4">
+                            [PHOTO]
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sophie K.</h4>
+                            <p class="text-sm text-gray-400">Directrice Marketing</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-4">
+                        "Mariame a transformé ma façon de me présenter en public. Son coaching en étiquette 
+                        m'a donné la confiance nécessaire pour exceller dans mes fonctions de direction."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="elegant-card p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="image-placeholder w-16 h-16 rounded-full mr-4">
+                            [PHOTO]
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Aminata D.</h4>
+                            <p class="text-sm text-gray-400">Entrepreneuse</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic mb-4">
+                        "Grâce au programme Les Élites au Féminin, j'ai développé mon leadership et 
+                        lancé ma propre entreprise. Mariame est une mentor exceptionnelle."
+                    </p>
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Resources Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="section-number mb-8">.04 // Plongez dans les ressources gratuites</div>
+                <h2 class="text-4xl font-playfair font-bold mb-8">
+                    <span class="gradient-text">On the House</span>
+                </h2>
+                <h3 class="text-2xl mb-8">Et apprends :</h3>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-6 mb-12">
+                    <div class="elegant-card p-6 rounded-lg">
+                        <i class="fas fa-lightbulb text-yellow-400 text-2xl mb-4"></i>
+                        <p class="text-gray-300">Comment développer ta présence et ton charisme naturel</p>
+                    </div>
+                    <div class="elegant-card p-6 rounded-lg">
+                        <i class="fas fa-target text-yellow-400 text-2xl mb-4"></i>
+                        <p class="text-gray-300">Les secrets d'un personal branding authentique</p>
+                    </div>
+                    <div class="elegant-card p-6 rounded-lg">
+                        <i class="fas fa-rocket text-yellow-400 text-2xl mb-4"></i>
+                        <p class="text-gray-300">Les 5 piliers du leadership féminin moderne</p>
+                    </div>
+                    <div class="elegant-card p-6 rounded-lg">
+                        <i class="fas fa-crown text-yellow-400 text-2xl mb-4"></i>
+                        <p class="text-gray-300">Comment maîtriser l'art du savoir-vivre professionnel</p>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <button class="bg-yellow-600 hover:bg-yellow-700 text-black px-8 py-3 rounded-lg font-semibold transition hover-transform">
+                        <i class="fas fa-download mr-2"></i>Saisis-le maintenant
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl font-playfair font-bold mb-8">
+                    Prête à transformer ta <span class="gradient-text">Carrière</span> ?
+                </h2>
+                <p class="text-xl text-gray-300 mb-12">
+                    Rejoins les centaines de femmes qui ont déjà transformé leur vie professionnelle
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-envelope text-black text-xl"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Email</h3>
+                        <p class="text-gray-400">contact@afriquettebydiam.com</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fab fa-instagram text-black text-xl"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Instagram</h3>
+                        <p class="text-gray-400">@afriquettebydiam</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-phone text-black text-xl"></i>
+                        </div>
+                        <h3 class="font-bold mb-2">Consultation</h3>
+                        <p class="text-gray-400">Rendez-vous sur demande</p>
+                    </div>
+                </div>
+                
+                <div class="elegant-card p-8 rounded-lg max-w-2xl mx-auto">
+                    <h3 class="text-2xl font-playfair font-bold mb-6">Réservez votre consultation gratuite</h3>
+                    <form class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Prénom" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none">
+                            <input type="text" placeholder="Nom" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none">
+                        </div>
+                        <input type="email" placeholder="Email" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none">
+                        <select class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none">
+                            <option>Choisissez votre besoin</option>
+                            <option>Coaching en Étiquette</option>
+                            <option>Leadership Féminin</option>
+                            <option>Relations Publiques</option>
+                            <option>Programme complet</option>
+                        </select>
+                        <textarea placeholder="Décrivez votre situation actuelle" rows="4" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none"></textarea>
+                        <button type="submit" class="w-full bg-yellow-600 hover:bg-yellow-700 text-black py-3 rounded-lg font-semibold transition">
+                            <i class="fas fa-paper-plane mr-2"></i>Réserver ma consultation gratuite
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-900 border-t border-gray-700">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="text-3xl font-playfair font-bold gradient-text mb-4">
+                    AFRIQUETTE BY DIAM
+                </div>
+                <p class="text-gray-400 mb-6">
+                    Transforming lives through elegance, leadership, and authentic empowerment.
+                </p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition">
+                        <i class="fab fa-facebook text-2xl"></i>
+                    </a>
+                </div>
+                <p class="text-sm text-gray-500">
+                    © 2025 Afriquette by Diam. Tous droits réservés. | 
+                    <span class="gradient-text">Start small. Stay bold. Grow loud.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('bg-opacity-95');
+            } else {
+                header.classList.remove('bg-opacity-95');
+            }
+        });
+    </script>
+</body>
+</html>
