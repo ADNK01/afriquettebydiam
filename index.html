@@ -41,68 +41,70 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Images optimisées - s'affichent en entier */
+        /* Images optimisées - SANS CADRES - Design épuré */
         .image-container {
             position: relative;
             overflow: hidden;
-            border-radius: 0.5rem;
-            background: linear-gradient(135deg, #d4af37 0%, #f4e68c 100%);
-            box-shadow: 0 8px 32px rgba(212, 175, 55, 0.2);
+            border-radius: 0.75rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         }
         
         .image-container img {
             width: 100%;
             height: auto;
-            object-fit: contain; /* Changé de cover à contain pour afficher l'image en entier */
+            object-fit: cover;
             object-position: center;
             transition: transform 0.3s ease;
-            border-radius: 0.5rem;
+            border-radius: 0.75rem;
         }
         
         .image-container:hover img {
-            transform: scale(1.02);
+            transform: scale(1.05);
         }
         
-        /* Images avec hauteur fixe mais contenu préservé */
+        /* Images avec tailles augmentées et sans cadres */
         .image-hero {
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #d4af37 0%, #f4e68c 100%);
+            height: 550px;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
         }
         
         .image-hero img {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
-            border-radius: 0.5rem;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.75rem;
         }
         
         .image-story {
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #d4af37 0%, #f4e68c 100%);
+            height: 350px;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
         }
         
         .image-story img {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
-            border-radius: 0.5rem;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .image-story:hover img {
+            transform: scale(1.08);
         }
         
         .image-testimonial {
-            width: 64px;
-            height: 64px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             overflow: hidden;
-            background: linear-gradient(135deg, #d4af37 0%, #f4e68c 100%);
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
         
         .image-testimonial img {
@@ -112,17 +114,19 @@
             border-radius: 50%;
         }
         
+        /* Placeholder sans cadre doré */
         .image-placeholder {
-            background: linear-gradient(135deg, #d4af37 0%, #f4e68c 100%);
+            background: rgba(255, 255, 255, 0.08);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #1a1a1a;
+            color: #d4af37;
             font-weight: 600;
-            font-size: 0.875rem;
+            font-size: 1rem;
             text-align: center;
             padding: 1rem;
-            border-radius: 0.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
         
         /* Menu mobile */
@@ -186,17 +190,22 @@
             }
             
             .image-hero {
-                height: 300px;
+                height: 420px;
             }
             
             .image-story {
-                height: 200px;
+                height: 300px;
             }
             
             .service-icon {
                 width: 50px;
                 height: 50px;
                 font-size: 1.25rem;
+            }
+            
+            .image-testimonial {
+                width: 70px;
+                height: 70px;
             }
         }
         
@@ -208,11 +217,11 @@
             .px-6 { padding-left: 1rem; padding-right: 1rem; }
             
             .image-hero {
-                height: 250px;
+                height: 350px;
             }
             
             .image-story {
-                height: 180px;
+                height: 260px;
             }
         }
         
@@ -221,7 +230,7 @@
             .text-5xl { font-size: 1.875rem; }
             
             .image-hero {
-                height: 200px;
+                height: 300px;
             }
         }
         
@@ -238,6 +247,8 @@
             body { font-size: 12px; }
             .hover-transform:hover { transform: none; }
             .image-container:hover img { transform: none; }
+            .image-story:hover img { transform: none; }
+            * { -webkit-print-color-adjust: exact !important; }
         }
     </style>
 </head>
@@ -517,7 +528,7 @@
                 <div class="elegant-card p-6 sm:p-8 rounded-lg">
                     <div class="flex items-center mb-4">
                         <div class="image-testimonial mr-4 flex-shrink-0">
-                            <div class="image-placeholder w-full h-full">
+                            <div class="image-placeholder w-full h-full rounded-full">
                                 <i class="fas fa-user text-2xl"></i>
                             </div>
                         </div>
@@ -542,7 +553,7 @@
                 <div class="elegant-card p-6 sm:p-8 rounded-lg">
                     <div class="flex items-center mb-4">
                         <div class="image-testimonial mr-4 flex-shrink-0">
-                            <div class="image-placeholder w-full h-full">
+                            <div class="image-placeholder w-full h-full rounded-full">
                                 <i class="fas fa-user text-2xl"></i>
                             </div>
                         </div>
