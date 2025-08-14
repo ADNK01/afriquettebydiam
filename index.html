@@ -41,24 +41,75 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        /* Gestion optimisée des images */
+        /* Images optimisées - s'affichent en entier */
         .image-container {
             position: relative;
             overflow: hidden;
             border-radius: 0.5rem;
             background: linear-gradient(135deg, #d4af37 0%, #f4e68c 100%);
+            box-shadow: 0 8px 32px rgba(212, 175, 55, 0.2);
         }
         
         .image-container img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain; /* Changé de cover à contain pour afficher l'image en entier */
             object-position: center;
             transition: transform 0.3s ease;
+            border-radius: 0.5rem;
         }
         
         .image-container:hover img {
-            transform: scale(1.05);
+            transform: scale(1.02);
+        }
+        
+        /* Images avec hauteur fixe mais contenu préservé */
+        .image-hero {
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #d4af37 0%, #f4e68c 100%);
+        }
+        
+        .image-hero img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+        
+        .image-story {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #d4af37 0%, #f4e68c 100%);
+        }
+        
+        .image-story img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+        
+        .image-testimonial {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: linear-gradient(135deg, #d4af37 0%, #f4e68c 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .image-testimonial img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
         
         .image-placeholder {
@@ -71,6 +122,7 @@
             font-size: 0.875rem;
             text-align: center;
             padding: 1rem;
+            border-radius: 0.5rem;
         }
         
         /* Menu mobile */
@@ -109,13 +161,67 @@
             transform: translateY(-50%) scale(1.1);
         }
         
-        /* Responsive breakpoints */
+        /* Icônes pour les services */
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #d4af37 0%, #f4e68c 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: #1a1a1a;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        /* Responsive breakpoints améliorés */
         @media (max-width: 768px) {
             .translate-btn {
                 right: 10px;
                 width: 40px;
                 height: 40px;
                 font-size: 14px;
+            }
+            
+            .image-hero {
+                height: 300px;
+            }
+            
+            .image-story {
+                height: 200px;
+            }
+            
+            .service-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.25rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .text-5xl { font-size: 2.25rem; }
+            .text-7xl { font-size: 2.75rem; }
+            .text-4xl { font-size: 1.875rem; }
+            .text-3xl { font-size: 1.5rem; }
+            .px-6 { padding-left: 1rem; padding-right: 1rem; }
+            
+            .image-hero {
+                height: 250px;
+            }
+            
+            .image-story {
+                height: 180px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .text-7xl { font-size: 2.25rem; }
+            .text-5xl { font-size: 1.875rem; }
+            
+            .image-hero {
+                height: 200px;
             }
         }
         
@@ -124,12 +230,14 @@
             display: none;
         }
 
-        /* Amélioration responsive */
-        @media (max-width: 640px) {
-            .text-5xl { font-size: 2.5rem; }
-            .text-7xl { font-size: 3rem; }
-            .text-4xl { font-size: 2rem; }
-            .px-6 { padding-left: 1rem; padding-right: 1rem; }
+        /* Optimisation pour PDF - suppression des effets de défilement */
+        @media print {
+            .fixed { position: static !important; }
+            .translate-btn { display: none !important; }
+            .mobile-menu { display: none !important; }
+            body { font-size: 12px; }
+            .hover-transform:hover { transform: none; }
+            .image-container:hover img { transform: none; }
         }
     </style>
 </head>
@@ -204,12 +312,10 @@
                     </div>
                 </div>
                 <div class="lg:w-1/2 w-full">
-                    <!-- IMAGE PRINCIPALE HERO - Remplacer par photo professionnelle de Mariame -->
-                    <div class="image-container w-full h-80 sm:h-96 lg:h-[500px]">
-                        <img src="https://i.imgur.com/zqrZCN6.jpeg" alt="Mariame Diakite - Coach en Étiquette" class="w-full h-full object-cover">
-                    </div>
-                    <div class="mt-2 text-xs text-gray-400 text-center">
-                        <!-- INSTRUCTION: Remplacer l'image ci-dessus par une photo professionnelle de Mariame Diakite -->
+                    <div class="image-container">
+                        <div class="image-hero">
+                            <img src="https://i.imgur.com/zqrZCN6.jpeg" alt="Mariame Diakite - Coach en Étiquette">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -254,12 +360,10 @@
                     </div>
                 </div>
                 <div class="lg:w-1/2 w-full">
-                    <!-- IMAGE ABOUT - Photo professionnelle de Mariame -->
-                    <div class="image-container w-full h-80 sm:h-96">
-                        <img src="https://i.imgur.com/si4Cucw.jpeg" alt="Mariame Diakite Professionnelle" class="w-full h-full object-cover">
-                    </div>
-                    <div class="mt-2 text-xs text-gray-400 text-center">
-                        <!-- INSTRUCTION: Remplacer par une photo professionnelle de Mariame en situation de coaching -->
+                    <div class="image-container">
+                        <div class="image-hero">
+                            <img src="https://i.imgur.com/si4Cucw.jpeg" alt="Mariame Diakite Professionnelle">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -275,18 +379,20 @@
             </h2>
             <div class="max-w-6xl mx-auto">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12">
-                    <!-- IMAGES STORY - 3 photos d'événements/projets -->
-                    <div class="image-container h-48 sm:h-56 lg:h-64">
-                        <img src="https://i.imgur.com/XOkr1W1.jpeg" alt="Événement Élites au Féminin" class="w-full h-full object-cover">
+                    <div class="image-container">
+                        <div class="image-story">
+                            <img src="https://i.imgur.com/XOkr1W1.jpeg" alt="Événement Élites au Féminin">
+                        </div>
                     </div>
-                    <div class="image-container h-48 sm:h-56 lg:h-64">
-                        <img src="https://i.imgur.com/cEwy6hg.jpeg" alt="Coaching Session" class="w-full h-full object-cover">
+                    <div class="image-container">
+                        <div class="image-story">
+                            <img src="https://i.imgur.com/cEwy6hg.jpeg" alt="Coaching Session">
+                        </div>
                     </div>
-                    <div class="image-container h-48 sm:h-56 lg:h-64">
-                        <img src="https://i.imgur.com/0My6QX9.jpeg" alt="Leadership Event" class="w-full h-full object-cover">
-                    </div>
-                    <div class="mt-2 text-xs text-gray-400 col-span-full">
-                        <!-- INSTRUCTION: Remplacer ces 3 images par des photos d'événements, de sessions de coaching ou de projets réalisés -->
+                    <div class="image-container">
+                        <div class="image-story">
+                            <img src="https://i.imgur.com/0My6QX9.jpeg" alt="Leadership Event">
+                        </div>
                     </div>
                 </div>
                 <p class="text-base sm:text-lg text-gray-300 mb-8 max-w-4xl mx-auto" data-fr="De mes débuts dans le football africain à la création des 'Élites au Féminin', mon parcours a été guidé par une mission : empowerer les femmes africaines à révéler leur potentiel de leadership." data-en="From my beginnings in African football to creating 'Les Élites au Féminin', my journey has been guided by one mission: empowering African women to reveal their leadership potential.">
@@ -311,15 +417,15 @@
             </h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
-                <div class="elegant-card p-6 sm:p-8 rounded-lg hover-transform">
-                    <div class="text-yellow-400 text-3xl sm:text-4xl mb-4">
+                <div class="elegant-card p-6 sm:p-8 rounded-lg hover-transform text-center">
+                    <div class="service-icon">
                         <i class="fas fa-gem"></i>
                     </div>
                     <h3 class="text-xl sm:text-2xl font-playfair font-bold mb-4" data-fr="Coaching en Étiquette" data-en="Etiquette Coaching">Coaching en Étiquette</h3>
                     <p class="text-gray-300 mb-6 text-sm sm:text-base" data-fr="Maîtrise l'art du savoir-vivre et de l'élégance pour briller dans tous tes environnements professionnels et sociaux." data-en="Master the art of savoir-vivre and elegance to shine in all your professional and social environments.">
                         Maîtrise l'art du savoir-vivre et de l'élégance pour briller dans tous tes environnements professionnels et sociaux.
                     </p>
-                    <ul class="text-xs sm:text-sm text-gray-400 space-y-2">
+                    <ul class="text-xs sm:text-sm text-gray-400 space-y-2 text-left">
                         <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Protocole d'affaires" data-en="Business protocol">Protocole d'affaires</span></li>
                         <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Communication non-verbale" data-en="Non-verbal communication">Communication non-verbale</span></li>
                         <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Présence et charisme" data-en="Presence and charisma">Présence et charisme</span></li>
@@ -327,15 +433,15 @@
                     </ul>
                 </div>
 
-                <div class="elegant-card p-6 sm:p-8 rounded-lg hover-transform">
-                    <div class="text-yellow-400 text-3xl sm:text-4xl mb-4">
+                <div class="elegant-card p-6 sm:p-8 rounded-lg hover-transform text-center">
+                    <div class="service-icon">
                         <i class="fas fa-crown"></i>
                     </div>
                     <h3 class="text-xl sm:text-2xl font-playfair font-bold mb-4" data-fr="Leadership Féminin" data-en="Feminine Leadership">Leadership Féminin</h3>
                     <p class="text-gray-300 mb-6 text-sm sm:text-base" data-fr="Développe ton leadership authentique et assume ton identité de femme leader dans un monde en transformation." data-en="Develop your authentic leadership and embrace your identity as a female leader in a transforming world.">
                         Développe ton leadership authentique et assume ton identité de femme leader dans un monde en transformation.
                     </p>
-                    <ul class="text-xs sm:text-sm text-gray-400 space-y-2">
+                    <ul class="text-xs sm:text-sm text-gray-400 space-y-2 text-left">
                         <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Développement du mindset" data-en="Mindset development">Développement du mindset</span></li>
                         <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Stratégies de communication" data-en="Communication strategies">Stratégies de communication</span></li>
                         <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Gestion des équipes" data-en="Team management">Gestion des équipes</span></li>
@@ -343,15 +449,15 @@
                     </ul>
                 </div>
 
-                <div class="elegant-card p-6 sm:p-8 rounded-lg hover-transform md:col-span-2 lg:col-span-1">
-                    <div class="text-yellow-400 text-3xl sm:text-4xl mb-4">
-                        <i class="fas fa-megaphone"></i>
+                <div class="elegant-card p-6 sm:p-8 rounded-lg hover-transform text-center md:col-span-2 lg:col-span-1">
+                    <div class="service-icon">
+                        <i class="fas fa-globe-americas"></i>
                     </div>
-                    <h3 class="text-xl sm:text-2xl font-playfair font-bold mb-4" data-fr="Relations Publiques" data-en="Public Relations">Relations Publiques</h3>
-                    <p class="text-gray-300 mb-6 text-sm sm:text-base" data-fr="Construis ton image de marque personnelle et développe ton réseau pour maximiser ton impact professionnel." data-en="Build your personal brand and develop your network to maximize your professional impact.">
-                        Construis ton image de marque personnelle et développe ton réseau pour maximiser ton impact professionnel.
+                    <h3 class="text-xl sm:text-2xl font-playfair font-bold mb-4" data-fr="Relations Internationales" data-en="International Relations">Relations Internationales</h3>
+                    <p class="text-gray-300 mb-6 text-sm sm:text-base" data-fr="Construis ton image de marque personnelle et développe ton réseau pour maximiser ton impact professionnel à l'échelle internationale." data-en="Build your personal brand and develop your network to maximize your professional impact on an international scale.">
+                        Construis ton image de marque personnelle et développe ton réseau pour maximiser ton impact professionnel à l'échelle internationale.
                     </p>
-                    <ul class="text-xs sm:text-sm text-gray-400 space-y-2">
+                    <ul class="text-xs sm:text-sm text-gray-400 space-y-2 text-left">
                         <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Personal branding" data-en="Personal branding">Personal branding</span></li>
                         <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Media training" data-en="Media training">Media training</span></li>
                         <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Networking stratégique" data-en="Strategic networking">Networking stratégique</span></li>
@@ -410,9 +516,10 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
                 <div class="elegant-card p-6 sm:p-8 rounded-lg">
                     <div class="flex items-center mb-4">
-                        <!-- IMAGE TÉMOIGNAGE 1 - Photo cliente -->
-                        <div class="image-placeholder w-12 h-12 sm:w-16 sm:h-16 rounded-full mr-4 flex-shrink-0">
-                            [PHOTO]
+                        <div class="image-testimonial mr-4 flex-shrink-0">
+                            <div class="image-placeholder w-full h-full">
+                                <i class="fas fa-user text-2xl"></i>
+                            </div>
                         </div>
                         <div>
                             <h4 class="font-bold text-sm sm:text-base">Sophie K.</h4>
@@ -430,16 +537,14 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <div class="mt-2 text-xs text-gray-500">
-                        <!-- INSTRUCTION: Remplacer [PHOTO] par une photo de cliente (avec autorisation) -->
-                    </div>
                 </div>
 
                 <div class="elegant-card p-6 sm:p-8 rounded-lg">
                     <div class="flex items-center mb-4">
-                        <!-- IMAGE TÉMOIGNAGE 2 - Photo cliente -->
-                        <div class="image-placeholder w-12 h-12 sm:w-16 sm:h-16 rounded-full mr-4 flex-shrink-0">
-                            [PHOTO]
+                        <div class="image-testimonial mr-4 flex-shrink-0">
+                            <div class="image-placeholder w-full h-full">
+                                <i class="fas fa-user text-2xl"></i>
+                            </div>
                         </div>
                         <div>
                             <h4 class="font-bold text-sm sm:text-base">Aminata D.</h4>
@@ -456,9 +561,6 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-                    </div>
-                    <div class="mt-2 text-xs text-gray-500">
-                        <!-- INSTRUCTION: Remplacer [PHOTO] par une photo de cliente (avec autorisation) -->
                     </div>
                 </div>
             </div>
@@ -478,20 +580,28 @@
             
             <div class="max-w-6xl mx-auto">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-12">
-                    <div class="elegant-card p-4 sm:p-6 rounded-lg">
-                        <i class="fas fa-lightbulb text-yellow-400 text-xl sm:text-2xl mb-4"></i>
+                    <div class="elegant-card p-4 sm:p-6 rounded-lg text-center">
+                        <div class="service-icon mb-4">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
                         <p class="text-gray-300 text-sm sm:text-base" data-fr="Comment développer ta présence et ton charisme naturel" data-en="How to develop your natural presence and charisma">Comment développer ta présence et ton charisme naturel</p>
                     </div>
-                    <div class="elegant-card p-4 sm:p-6 rounded-lg">
-                        <i class="fas fa-target text-yellow-400 text-xl sm:text-2xl mb-4"></i>
+                    <div class="elegant-card p-4 sm:p-6 rounded-lg text-center">
+                        <div class="service-icon mb-4">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
                         <p class="text-gray-300 text-sm sm:text-base" data-fr="Les secrets d'un personal branding authentique" data-en="The secrets of authentic personal branding">Les secrets d'un personal branding authentique</p>
                     </div>
-                    <div class="elegant-card p-4 sm:p-6 rounded-lg">
-                        <i class="fas fa-rocket text-yellow-400 text-xl sm:text-2xl mb-4"></i>
+                    <div class="elegant-card p-4 sm:p-6 rounded-lg text-center">
+                        <div class="service-icon mb-4">
+                            <i class="fas fa-rocket"></i>
+                        </div>
                         <p class="text-gray-300 text-sm sm:text-base" data-fr="Les 5 piliers du leadership féminin moderne" data-en="The 5 pillars of modern feminine leadership">Les 5 piliers du leadership féminin moderne</p>
                     </div>
-                    <div class="elegant-card p-4 sm:p-6 rounded-lg">
-                        <i class="fas fa-crown text-yellow-400 text-xl sm:text-2xl mb-4"></i>
+                    <div class="elegant-card p-4 sm:p-6 rounded-lg text-center">
+                        <div class="service-icon mb-4">
+                            <i class="fas fa-crown"></i>
+                        </div>
                         <p class="text-gray-300 text-sm sm:text-base" data-fr="Comment maîtriser l'art du savoir-vivre professionnel" data-en="How to master the art of professional etiquette">Comment maîtriser l'art du savoir-vivre professionnel</p>
                     </div>
                 </div>
@@ -518,22 +628,22 @@
                 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-12">
                     <div class="text-center">
-                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-envelope text-black text-lg sm:text-xl"></i>
+                        <div class="service-icon">
+                            <i class="fas fa-envelope"></i>
                         </div>
                         <h3 class="font-bold mb-2 text-sm sm:text-base" data-fr="Email" data-en="Email">Email</h3>
                         <p class="text-gray-400 text-xs sm:text-sm">contact@afriquettebydiam.com</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fab fa-instagram text-black text-lg sm:text-xl"></i>
+                        <div class="service-icon">
+                            <i class="fab fa-instagram"></i>
                         </div>
                         <h3 class="font-bold mb-2 text-sm sm:text-base">Instagram</h3>
                         <p class="text-gray-400 text-xs sm:text-sm">@afriquettebydiam</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-phone text-black text-lg sm:text-xl"></i>
+                        <div class="service-icon">
+                            <i class="fas fa-phone"></i>
                         </div>
                         <h3 class="font-bold mb-2 text-sm sm:text-base" data-fr="Consultation" data-en="Consultation">Consultation</h3>
                         <p class="text-gray-400 text-xs sm:text-sm" data-fr="Rendez-vous sur demande" data-en="Appointment on request">Rendez-vous sur demande</p>
@@ -552,7 +662,7 @@
                             <option data-fr="Choisissez votre besoin" data-en="Choose your need">Choisissez votre besoin</option>
                             <option data-fr="Coaching en Étiquette" data-en="Etiquette Coaching">Coaching en Étiquette</option>
                             <option data-fr="Leadership Féminin" data-en="Feminine Leadership">Leadership Féminin</option>
-                            <option data-fr="Relations Publiques" data-en="Public Relations">Relations Publiques</option>
+                            <option data-fr="Relations Internationales" data-en="International Relations">Relations Internationales</option>
                             <option data-fr="Programme complet" data-en="Complete Program">Programme complet</option>
                         </select>
                         <textarea placeholder="Décrivez votre situation actuelle" rows="4" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none text-sm sm:text-base" data-placeholder-fr="Décrivez votre situation actuelle" data-placeholder-en="Describe your current situation"></textarea>
