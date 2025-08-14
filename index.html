@@ -1,802 +1,740 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afriquette by Diam - Coach en Étiquette & Leadership</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-        }
-        .font-playfair {
-            font-family: 'Playfair Display', serif;
-        }
-        .gradient-bg {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #d4af37 0%, #f4e68c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .section-number {
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            color: #d4af37;
-            font-weight: 300;
-        }
-        .hover-transform {
-            transition: all 0.3s ease;
-        }
-        .hover-transform:hover {
-            transform: translateY(-5px);
-        }
-        .elegant-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Images optimisées - SANS CADRES - Design épuré */
-        .image-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 0.75rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-        }
-        
-        .image-container img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            object-position: center;
-            transition: transform 0.3s ease;
-            border-radius: 0.75rem;
-        }
-        
-        .image-container:hover img {
-            transform: scale(1.05);
-        }
-        
-        /* Images avec tailles augmentées et sans cadres */
-        .image-hero {
-            height: 550px;
-            overflow: hidden;
-            border-radius: 0.75rem;
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-        }
-        
-        .image-hero img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 0.75rem;
-        }
-        
-        .image-story {
-            height: 350px;
-            overflow: hidden;
-            border-radius: 0.75rem;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-        }
-        
-        .image-story img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 0.75rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .image-story:hover img {
-            transform: scale(1.08);
-        }
-        
-        .image-testimonial {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        }
-        
-        .image-testimonial img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-        }
-        
-        /* Placeholder sans cadre doré */
-        .image-placeholder {
-            background: rgba(255, 255, 255, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #d4af37;
-            font-weight: 600;
-            font-size: 1rem;
-            text-align: center;
-            padding: 1rem;
-            border-radius: 0.75rem;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-        
-        /* Menu mobile */
-        .mobile-menu {
-            transform: translateX(-100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-        
-        /* Bouton de traduction */
-        .translate-btn {
-            position: fixed;
-            top: 50%;
-            right: 20px;
-            transform: translateY(-50%);
-            z-index: 1000;
-            background: #d4af37;
-            color: #1a1a1a;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .translate-btn:hover {
-            background: #f4e68c;
-            transform: translateY(-50%) scale(1.1);
-        }
-        
-        /* Icônes pour les services */
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #d4af37 0%, #f4e68c 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            color: #1a1a1a;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-        }
-        
-        /* Responsive breakpoints améliorés */
-        @media (max-width: 768px) {
-            .translate-btn {
-                right: 10px;
-                width: 40px;
-                height: 40px;
-                font-size: 14px;
-            }
-            
-            .image-hero {
-                height: 420px;
-            }
-            
-            .image-story {
-                height: 300px;
-            }
-            
-            .service-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.25rem;
-            }
-            
-            .image-testimonial {
-                width: 70px;
-                height: 70px;
-            }
-        }
-        
-        @media (max-width: 640px) {
-            .text-5xl { font-size: 2.25rem; }
-            .text-7xl { font-size: 2.75rem; }
-            .text-4xl { font-size: 1.875rem; }
-            .text-3xl { font-size: 1.5rem; }
-            .px-6 { padding-left: 1rem; padding-right: 1rem; }
-            
-            .image-hero {
-                height: 350px;
-            }
-            
-            .image-story {
-                height: 260px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .text-7xl { font-size: 2.25rem; }
-            .text-5xl { font-size: 1.875rem; }
-            
-            .image-hero {
-                height: 300px;
-            }
-        }
-        
-        /* Hidden class pour la traduction */
-        .hidden-lang {
-            display: none;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Afriquette by Diam - Coach en Étiquette & Leadership</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+    }
 
-        /* Optimisation pour PDF - suppression des effets de défilement */
-        @media print {
-            .fixed { position: static !important; }
-            .translate-btn { display: none !important; }
-            .mobile-menu { display: none !important; }
-            body { font-size: 12px; }
-            .hover-transform:hover { transform: none; }
-            .image-container:hover img { transform: none; }
-            .image-story:hover img { transform: none; }
-            * { -webkit-print-color-adjust: exact !important; }
-        }
-    </style>
+    .font-playfair {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .gradient-bg {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #d4af37 0%, #f4e68c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-number {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      color: #d4af37;
+      font-weight: 300;
+    }
+
+    .hover-transform {
+      transition: all 0.3s ease;
+    }
+
+    .hover-transform:hover {
+      transform: translateY(-5px);
+    }
+
+    .elegant-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* === IMAGES : Optimisation pour affichage complet === */
+
+    /* Image principale (Hero) - on veut voir tout le visage */
+    .image-hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.75rem;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+      height: 550px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1a1a1a;
+    }
+
+    .image-hero img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain; /* Affiche toute l'image */
+      object-position: center;
+      border-radius: 0.75rem;
+    }
+
+    /* Images de la section Story - cadrage artistique accepté */
+    .image-story {
+      position: relative;
+      overflow: hidden;
+      border-radius: 0.75rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #1a1a1a;
+    }
+
+    .image-story img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s ease;
+    }
+
+    .image-story:hover img {
+      transform: scale(1.08);
+    }
+
+    /* Images de témoignages (rondes) */
+    .image-testimonial {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      background: #1a1a1a;
+    }
+
+    .image-testimonial img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .image-placeholder {
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #d4af37;
+      font-size: 1.5rem;
+    }
+
+    /* === Menu mobile === */
+    .mobile-menu {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+
+    /* === Bouton de traduction === */
+    .translate-btn {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      z-index: 1000;
+      background: #d4af37;
+      color: #1a1a1a;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .translate-btn:hover {
+      background: #f4e68c;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    /* === Icônes services === */
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #d4af37 0%, #f4e68c 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      color: #1a1a1a;
+      font-size: 1.5rem;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+
+    /* === Responsive amélioré === */
+    @media (max-width: 768px) {
+      .translate-btn {
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+      }
+
+      .image-hero {
+        height: 420px;
+      }
+
+      .image-story {
+        height: 300px;
+      }
+
+      .service-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+      }
+
+      .image-testimonial {
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .text-5xl { font-size: 2.25rem; }
+      .text-7xl { font-size: 2.75rem; }
+      .text-4xl { font-size: 1.875rem; }
+      .text-3xl { font-size: 1.5rem; }
+      .px-6 { padding-left: 1rem; padding-right: 1rem; }
+
+      .image-hero {
+        height: 350px;
+      }
+
+      .image-story {
+        height: 260px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .text-7xl { font-size: 2.25rem; }
+      .text-5xl { font-size: 1.875rem; }
+
+      .image-hero {
+        height: 300px;
+      }
+
+      .image-story {
+        height: 220px;
+      }
+    }
+
+    /* === Impression === */
+    @media print {
+      .fixed { position: static !important; }
+      .translate-btn { display: none !important; }
+      .mobile-menu { display: none !important; }
+      body { font-size: 12px; }
+      .hover-transform:hover { transform: none; }
+      .image-story:hover img { transform: none; }
+      * { -webkit-print-color-adjust: exact !important; }
+    }
+  </style>
 </head>
 <body class="bg-gray-900 text-white">
-    <!-- Bouton de traduction flottant -->
-    <button class="translate-btn" onclick="toggleLanguage()">
-        <i class="fas fa-globe"></i>
-    </button>
 
-    <!-- Header -->
-    <header class="fixed top-0 w-full z-50 bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-lg">
-        <nav class="container mx-auto px-4 sm:px-6 py-4">
-            <div class="flex justify-between items-center">
-                <div class="text-xl sm:text-2xl font-playfair font-bold gradient-text">
-                    AFRIQUETTE BY DIAM
-                </div>
-                <!-- Menu desktop -->
-                <div class="hidden md:flex space-x-6 lg:space-x-8">
-                    <a href="#about" class="hover:text-yellow-400 transition text-sm lg:text-base" data-fr="À propos" data-en="About">À propos</a>
-                    <a href="#services" class="hover:text-yellow-400 transition text-sm lg:text-base" data-fr="Services" data-en="Services">Services</a>
-                    <a href="#testimonials" class="hover:text-yellow-400 transition text-sm lg:text-base" data-fr="Témoignages" data-en="Testimonials">Témoignages</a>
-                    <a href="#contact" class="hover:text-yellow-400 transition text-sm lg:text-base" data-fr="Contact" data-en="Contact">Contact</a>
-                </div>
-                <!-- Menu mobile button -->
-                <button class="md:hidden text-white" onclick="toggleMobileMenu()">
-                    <i class="fas fa-bars text-xl"></i>
-                </button>
-            </div>
-        </nav>
-        
-        <!-- Menu mobile -->
-        <div class="mobile-menu md:hidden bg-gray-900 bg-opacity-95 backdrop-blur-lg fixed top-0 left-0 w-full h-full">
-            <div class="flex justify-between items-center p-6 border-b border-gray-700">
-                <div class="text-xl font-playfair font-bold gradient-text">MENU</div>
-                <button onclick="toggleMobileMenu()">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            <div class="p-6 space-y-6">
-                <a href="#about" class="block text-xl hover:text-yellow-400 transition" onclick="toggleMobileMenu()" data-fr="À propos" data-en="About">À propos</a>
-                <a href="#services" class="block text-xl hover:text-yellow-400 transition" onclick="toggleMobileMenu()" data-fr="Services" data-en="Services">Services</a>
-                <a href="#testimonials" class="block text-xl hover:text-yellow-400 transition" onclick="toggleMobileMenu()" data-fr="Témoignages" data-en="Testimonials">Témoignages</a>
-                <a href="#contact" class="block text-xl hover:text-yellow-400 transition" onclick="toggleMobileMenu()" data-fr="Contact" data-en="Contact">Contact</a>
-            </div>
+  <!-- Bouton de traduction flottant -->
+  <button class="translate-btn" onclick="toggleLanguage()">
+    <i class="fas fa-globe"></i>
+  </button>
+
+  <!-- Header -->
+  <header class="fixed top-0 w-full z-50 bg-gray-900 bg-opacity-90 backdrop-filter backdrop-blur-lg">
+    <nav class="container mx-auto px-4 sm:px-6 py-4">
+      <div class="flex justify-between items-center">
+        <div class="text-xl sm:text-2xl font-playfair font-bold gradient-text">AFRIQUETTE BY DIAM</div>
+        <div class="hidden md:flex space-x-6 lg:space-x-8">
+          <a href="#about" class="hover:text-yellow-400 transition text-sm lg:text-base" data-fr="À propos" data-en="About">À propos</a>
+          <a href="#services" class="hover:text-yellow-400 transition text-sm lg:text-base" data-fr="Services" data-en="Services">Services</a>
+          <a href="#testimonials" class="hover:text-yellow-400 transition text-sm lg:text-base" data-fr="Témoignages" data-en="Testimonials">Témoignages</a>
+          <a href="#contact" class="hover:text-yellow-400 transition text-sm lg:text-base" data-fr="Contact" data-en="Contact">Contact</a>
         </div>
-    </header>
+        <button class="md:hidden text-white" onclick="toggleMobileMenu()">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </nav>
 
-    <!-- Hero Section -->
-    <section class="gradient-bg min-h-screen flex items-center pt-20">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-                <div class="lg:w-1/2 text-center lg:text-left">
-                    <div class="section-number mb-4" data-fr="DEPUIS 2015" data-en="SINCE 2015">DEPUIS 2015</div>
-                    <h1 class="text-4xl sm:text-5xl lg:text-7xl font-playfair font-bold mb-6 leading-tight">
-                        <span data-fr="POUR LES" data-en="FOR">POUR LES</span><br>
-                        <span class="gradient-text" data-fr="LEADERS" data-en="LEADERS">LEADERS</span><br>
-                        <span data-fr="D'AUJOURD'HUI" data-en="OF TODAY">D'AUJOURD'HUI</span>
-                    </h1>
-                    <div class="text-lg sm:text-xl mb-8 text-gray-300">
-                        <p data-fr="Transformer des Vies." data-en="Transform Lives.">Transformer des Vies.</p>
-                        <p data-fr="Transformer des Carrières." data-en="Transform Careers.">Transformer des Carrières.</p>
-                        <p data-fr="Transformer des Mentalités." data-en="Transform Mindsets.">Transformer des Mentalités.</p>
-                        <span class="gradient-text font-semibold">Now & Forever.</span>
-                    </div>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                        <button class="bg-yellow-600 hover:bg-yellow-700 text-black px-6 sm:px-8 py-3 rounded-lg font-semibold transition hover-transform text-sm sm:text-base" data-fr="Découvrir mes services" data-en="Discover my services">
-                            Découvrir mes services
-                        </button>
-                        <button class="border border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-black px-6 sm:px-8 py-3 rounded-lg font-semibold transition text-sm sm:text-base" data-fr="Mon histoire" data-en="My story">
-                            Mon histoire
-                        </button>
-                    </div>
-                </div>
-                <div class="lg:w-1/2 w-full">
-                    <div class="image-container">
-                        <div class="image-hero">
-                            <img src="https://i.imgur.com/zqrZCN6.jpeg" alt="Mariame Diakite - Coach en Étiquette">
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Menu mobile -->
+    <div class="mobile-menu md:hidden bg-gray-900 bg-opacity-95 backdrop-blur-lg fixed top-0 left-0 w-full h-full">
+      <div class="flex justify-between items-center p-6 border-b border-gray-700">
+        <div class="text-xl font-playfair font-bold gradient-text">MENU</div>
+        <button onclick="toggleMobileMenu()">
+          <i class="fas fa-times text-xl"></i>
+        </button>
+      </div>
+      <div class="p-6 space-y-6">
+        <a href="#about" class="block text-xl hover:text-yellow-400 transition" onclick="toggleMobileMenu()" data-fr="À propos" data-en="About">À propos</a>
+        <a href="#services" class="block text-xl hover:text-yellow-400 transition" onclick="toggleMobileMenu()" data-fr="Services" data-en="Services">Services</a>
+        <a href="#testimonials" class="block text-xl hover:text-yellow-400 transition" onclick="toggleMobileMenu()" data-fr="Témoignages" data-en="Testimonials">Témoignages</a>
+        <a href="#contact" class="block text-xl hover:text-yellow-400 transition" onclick="toggleMobileMenu()" data-fr="Contact" data-en="Contact">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="gradient-bg min-h-screen flex items-center pt-20">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+        <div class="lg:w-1/2 text-center lg:text-left">
+          <div class="section-number mb-4" data-fr="DEPUIS 2015" data-en="SINCE 2015">DEPUIS 2015</div>
+          <h1 class="text-4xl sm:text-5xl lg:text-7xl font-playfair font-bold mb-6 leading-tight">
+            <span data-fr="POUR LES" data-en="FOR">POUR LES</span><br>
+            <span class="gradient-text" data-fr="LEADERS" data-en="LEADERS">LEADERS</span><br>
+            <span data-fr="D'AUJOURD'HUI" data-en="OF TODAY">D'AUJOURD'HUI</span>
+          </h1>
+          <div class="text-lg sm:text-xl mb-8 text-gray-300">
+            <p data-fr="Transformer des Vies." data-en="Transform Lives.">Transformer des Vies.</p>
+            <p data-fr="Transformer des Carrières." data-en="Transform Careers.">Transformer des Carrières.</p>
+            <p data-fr="Transformer des Mentalités." data-en="Transform Mindsets.">Transformer des Mentalités.</p>
+            <span class="gradient-text font-semibold">Now & Forever.</span>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+            <button class="bg-yellow-600 hover:bg-yellow-700 text-black px-6 sm:px-8 py-3 rounded-lg font-semibold transition hover-transform text-sm sm:text-base" data-fr="Découvrir mes services" data-en="Discover my services">
+              Découvrir mes services
+            </button>
+            <button class="border border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-black px-6 sm:px-8 py-3 rounded-lg font-semibold transition text-sm sm:text-base" data-fr="Mon histoire" data-en="My story">
+              Mon histoire
+            </button>
+          </div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 sm:py-20 bg-gray-800">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="section-number mb-8" data-fr=".01 // Vous êtes au bon endroit" data-en=".01 // You're in the right place">.01 // Vous êtes au bon endroit</div>
-            <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-                <div class="lg:w-1/2">
-                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-playfair font-bold mb-6 leading-tight">
-                        <span data-fr="Coach & Experte en" data-en="Coach & Expert in">Coach & Experte en</span><br>
-                        <span class="gradient-text" data-fr="Relations Publiques" data-en="Public Relations">Relations Publiques</span><br>
-                        <span data-fr="depuis 10 ans" data-en="for 10 years">depuis 10 ans</span>
-                    </h2>
-                    <p class="text-base sm:text-lg text-gray-300 mb-6" data-fr="Je t'aide à révéler, façonner et exprimer ton leadership pour réussir dans tous les domaines de ta vie." data-en="I help you reveal, shape and express your leadership to succeed in all areas of your life.">
-                        Je t'aide à révéler, façonner et exprimer ton leadership pour réussir dans tous les domaines de ta vie.
-                    </p>
-                    <h3 class="text-2xl sm:text-3xl font-playfair font-bold mb-4 gradient-text">
-                        <span data-fr="Je suis MARIAME DIAKITE" data-en="I am MARIAME DIAKITE">Je suis MARIAME DIAKITE</span>
-                    </h3>
-                    <p class="text-gray-300 mb-8 text-sm sm:text-base" data-fr="Experte en Relations Publiques chez Diam Partners, Executive Football et Coach en Étiquette. J'ai (laborieusement) sélectionné les meilleures stratégies pour vous permettre de transformer votre vie et bâtir une carrière d'exception - basée sur des fondations solides." data-en="Public Relations Expert at Diam Partners, Football Executive and Etiquette Coach. I have (laboriously) selected the best strategies to enable you to transform your life and build an exceptional career - based on solid foundations.">
-                        Experte en Relations Publiques chez Diam Partners, Executive Football et Coach en Étiquette. 
-                        J'ai (laborieusement) sélectionné les meilleures stratégies pour vous permettre de transformer 
-                        votre vie et bâtir une carrière d'exception - basée sur des fondations solides.
-                    </p>
-                    <div class="flex flex-wrap gap-3 mb-8">
-                        <span class="bg-yellow-600 text-black px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold">
-                            <i class="fas fa-star mr-2"></i><span data-fr="PR Expert" data-en="PR Expert">PR Expert</span>
-                        </span>
-                        <span class="bg-yellow-600 text-black px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold">
-                            <i class="fas fa-futbol mr-2"></i><span data-fr="Football Executive" data-en="Football Executive">Football Executive</span>
-                        </span>
-                        <span class="bg-yellow-600 text-black px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold">
-                            <i class="fas fa-crown mr-2"></i><span data-fr="Etiquette Coach" data-en="Etiquette Coach">Etiquette Coach</span>
-                        </span>
-                        <span class="bg-yellow-600 text-black px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold">
-                            <i class="fas fa-users mr-2"></i><span data-fr="Co-founder Women" data-en="Co-founder Women">Co-founder Women</span>
-                        </span>
-                    </div>
-                </div>
-                <div class="lg:w-1/2 w-full">
-                    <div class="image-container">
-                        <div class="image-hero">
-                            <img src="https://i.imgur.com/si4Cucw.jpeg" alt="Mariame Diakite Professionnelle">
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="lg:w-1/2 w-full">
+          <div class="image-hero">
+            <img src="https://i.imgur.com/zqrZCN6.jpeg" alt="Mariame Diakite - Coach en Étiquette">
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Story Section -->
-    <section class="py-16 sm:py-20 bg-gray-900">
-        <div class="container mx-auto px-4 sm:px-6 text-center">
-            <h2 class="text-3xl sm:text-4xl font-playfair font-bold mb-8">
-                <span class="gradient-text" data-fr="Salam," data-en="Salam,">Salam,</span><br>
-                <span data-fr="from the inside Out" data-en="from the inside Out">from the inside Out</span>
-            </h2>
-            <div class="max-w-6xl mx-auto">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12">
-                    <div class="image-container">
-                        <div class="image-story">
-                            <img src="https://i.imgur.com/XOkr1W1.jpeg" alt="Événement Élites au Féminin">
-                        </div>
-                    </div>
-                    <div class="image-container">
-                        <div class="image-story">
-                            <img src="https://i.imgur.com/cEwy6hg.jpeg" alt="Coaching Session">
-                        </div>
-                    </div>
-                    <div class="image-container">
-                        <div class="image-story">
-                            <img src="https://i.imgur.com/0My6QX9.jpeg" alt="Leadership Event">
-                        </div>
-                    </div>
-                </div>
-                <p class="text-base sm:text-lg text-gray-300 mb-8 max-w-4xl mx-auto" data-fr="De mes débuts dans le football africain à la création des 'Élites au Féminin', mon parcours a été guidé par une mission : empowerer les femmes africaines à révéler leur potentiel de leadership." data-en="From my beginnings in African football to creating 'Les Élites au Féminin', my journey has been guided by one mission: empowering African women to reveal their leadership potential.">
-                    De mes débuts dans le football africain à la création des "Élites au Féminin", 
-                    mon parcours a été guidé par une mission : <strong class="gradient-text">empowerer</strong> 
-                    les femmes africaines à révéler leur potentiel de leadership.
-                </p>
-                <button class="bg-transparent border-2 border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-black px-6 sm:px-8 py-3 rounded-lg font-semibold transition hover-transform text-sm sm:text-base">
-                    <i class="fas fa-book-open mr-2"></i><span data-fr="Story time y'all" data-en="Story time y'all">Story time y'all</span>
-                </button>
-            </div>
+  <!-- About Section -->
+  <section id="about" class="py-16 sm:py-20 bg-gray-800">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="section-number mb-8" data-fr=".01 // Vous êtes au bon endroit" data-en=".01 // You're in the right place">.01 // Vous êtes au bon endroit</div>
+      <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+        <div class="lg:w-1/2">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-playfair font-bold mb-6 leading-tight">
+            <span data-fr="Coach & Experte en" data-en="Coach & Expert in">Coach & Experte en</span><br>
+            <span class="gradient-text" data-fr="Relations Publiques" data-en="Public Relations">Relations Publiques</span><br>
+            <span data-fr="depuis 10 ans" data-en="for 10 years">depuis 10 ans</span>
+          </h2>
+          <p class="text-base sm:text-lg text-gray-300 mb-6" data-fr="Je t'aide à révéler, façonner et exprimer ton leadership pour réussir dans tous les domaines de ta vie." data-en="I help you reveal, shape and express your leadership to succeed in all areas of your life.">
+            Je t'aide à révéler, façonner et exprimer ton leadership pour réussir dans tous les domaines de ta vie.
+          </p>
+          <h3 class="text-2xl sm:text-3xl font-playfair font-bold mb-4 gradient-text">
+            <span data-fr="Je suis MARIAME DIAKITE" data-en="I am MARIAME DIAKITE">Je suis MARIAME DIAKITE</span>
+          </h3>
+          <p class="text-gray-300 mb-8 text-sm sm:text-base" data-fr="Experte en Relations Publiques chez Diam Partners, Executive Football et Coach en Étiquette. J'ai (laborieusement) sélectionné les meilleures stratégies pour vous permettre de transformer votre vie et bâtir une carrière d'exception - basée sur des fondations solides." data-en="Public Relations Expert at Diam Partners, Football Executive and Etiquette Coach. I have (laboriously) selected the best strategies to enable you to transform your life and build an exceptional career - based on solid foundations.">
+            Experte en Relations Publiques chez Diam Partners, Executive Football et Coach en Étiquette. J'ai (laborieusement) sélectionné les meilleures stratégies pour vous permettre de transformer votre vie et bâtir une carrière d'exception - basée sur des fondations solides.
+          </p>
+          <div class="flex flex-wrap gap-3 mb-8">
+            <span class="bg-yellow-600 text-black px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold">
+              <i class="fas fa-star mr-2"></i><span data-fr="PR Expert" data-en="PR Expert">PR Expert</span>
+            </span>
+            <span class="bg-yellow-600 text-black px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold">
+              <i class="fas fa-futbol mr-2"></i><span data-fr="Football Executive" data-en="Football Executive">Football Executive</span>
+            </span>
+            <span class="bg-yellow-600 text-black px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold">
+              <i class="fas fa-crown mr-2"></i><span data-fr="Etiquette Coach" data-en="Etiquette Coach">Etiquette Coach</span>
+            </span>
+            <span class="bg-yellow-600 text-black px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold">
+              <i class="fas fa-users mr-2"></i><span data-fr="Co-founder Women" data-en="Co-founder Women">Co-founder Women</span>
+            </span>
+          </div>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-16 sm:py-20 bg-gray-800">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="section-number mb-8" data-fr=".02 // Il est temps de changer votre vie" data-en=".02 // It's time to change your life">.02 // Il est temps de changer votre vie</div>
-            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-playfair font-bold mb-12 text-center leading-tight">
-                <span data-fr="Transforme ta vie en construisant" data-en="Transform your life by building">Transforme ta vie en construisant</span><br>
-                <span class="gradient-text" data-fr="un Leadership qui te ressemble" data-en="Leadership that reflects you">un Leadership qui te ressemble</span>
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
-                <div class="elegant-card p-6 sm:p-8 rounded-lg hover-transform text-center">
-                    <div class="service-icon">
-                        <i class="fas fa-gem"></i>
-                    </div>
-                    <h3 class="text-xl sm:text-2xl font-playfair font-bold mb-4" data-fr="Coaching en Étiquette" data-en="Etiquette Coaching">Coaching en Étiquette</h3>
-                    <p class="text-gray-300 mb-6 text-sm sm:text-base" data-fr="Maîtrise l'art du savoir-vivre et de l'élégance pour briller dans tous tes environnements professionnels et sociaux." data-en="Master the art of savoir-vivre and elegance to shine in all your professional and social environments.">
-                        Maîtrise l'art du savoir-vivre et de l'élégance pour briller dans tous tes environnements professionnels et sociaux.
-                    </p>
-                    <ul class="text-xs sm:text-sm text-gray-400 space-y-2 text-left">
-                        <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Protocole d'affaires" data-en="Business protocol">Protocole d'affaires</span></li>
-                        <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Communication non-verbale" data-en="Non-verbal communication">Communication non-verbale</span></li>
-                        <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Présence et charisme" data-en="Presence and charisma">Présence et charisme</span></li>
-                        <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Élégance personnelle" data-en="Personal elegance">Élégance personnelle</span></li>
-                    </ul>
-                </div>
-
-                <div class="elegant-card p-6 sm:p-8 rounded-lg hover-transform text-center">
-                    <div class="service-icon">
-                        <i class="fas fa-crown"></i>
-                    </div>
-                    <h3 class="text-xl sm:text-2xl font-playfair font-bold mb-4" data-fr="Leadership Féminin" data-en="Feminine Leadership">Leadership Féminin</h3>
-                    <p class="text-gray-300 mb-6 text-sm sm:text-base" data-fr="Développe ton leadership authentique et assume ton identité de femme leader dans un monde en transformation." data-en="Develop your authentic leadership and embrace your identity as a female leader in a transforming world.">
-                        Développe ton leadership authentique et assume ton identité de femme leader dans un monde en transformation.
-                    </p>
-                    <ul class="text-xs sm:text-sm text-gray-400 space-y-2 text-left">
-                        <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Développement du mindset" data-en="Mindset development">Développement du mindset</span></li>
-                        <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Stratégies de communication" data-en="Communication strategies">Stratégies de communication</span></li>
-                        <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Gestion des équipes" data-en="Team management">Gestion des équipes</span></li>
-                        <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Vision et influence" data-en="Vision and influence">Vision et influence</span></li>
-                    </ul>
-                </div>
-
-                <div class="elegant-card p-6 sm:p-8 rounded-lg hover-transform text-center md:col-span-2 lg:col-span-1">
-                    <div class="service-icon">
-                        <i class="fas fa-globe-americas"></i>
-                    </div>
-                    <h3 class="text-xl sm:text-2xl font-playfair font-bold mb-4" data-fr="Relations Internationales" data-en="International Relations">Relations Internationales</h3>
-                    <p class="text-gray-300 mb-6 text-sm sm:text-base" data-fr="Construis ton image de marque personnelle et développe ton réseau pour maximiser ton impact professionnel à l'échelle internationale." data-en="Build your personal brand and develop your network to maximize your professional impact on an international scale.">
-                        Construis ton image de marque personnelle et développe ton réseau pour maximiser ton impact professionnel à l'échelle internationale.
-                    </p>
-                    <ul class="text-xs sm:text-sm text-gray-400 space-y-2 text-left">
-                        <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Personal branding" data-en="Personal branding">Personal branding</span></li>
-                        <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Media training" data-en="Media training">Media training</span></li>
-                        <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Networking stratégique" data-en="Strategic networking">Networking stratégique</span></li>
-                        <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Gestion de crise" data-en="Crisis management">Gestion de crise</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="text-center">
-                <button class="bg-yellow-600 hover:bg-yellow-700 text-black px-6 sm:px-8 py-3 rounded-lg font-semibold transition hover-transform text-sm sm:text-base">
-                    <i class="fas fa-calendar mr-2"></i><span data-fr="TRAVAILLONS ENSEMBLE" data-en="LET'S WORK TOGETHER">TRAVAILLONS ENSEMBLE</span>
-                </button>
-            </div>
+        <div class="lg:w-1/2 w-full">
+          <div class="image-hero">
+            <img src="https://i.imgur.com/si4Cucw.jpeg" alt="Mariame Diakite Professionnelle">
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Achievement Section -->
-    <section class="py-16 sm:py-20 bg-gray-900">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl sm:text-4xl font-playfair font-bold mb-4">
-                    <span data-fr="du Chaos à l'" data-en="from Chaos to ">du Chaos à l'</span><span class="gradient-text" data-fr="Ordre" data-en="Order">Ordre</span>
-                </h2>
-                <p class="text-lg sm:text-xl text-gray-300" data-fr="Des résultats concrets qui parlent d'eux-mêmes" data-en="Concrete results that speak for themselves">Des résultats concrets qui parlent d'eux-mêmes</p>
-            </div>
-            
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-                <div class="text-center">
-                    <div class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-2">900+</div>
-                    <p class="text-gray-300 text-sm sm:text-base" data-fr="Femmes Empowered" data-en="Women Empowered">Femmes Empowered</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-2">10+</div>
-                    <p class="text-gray-300 text-sm sm:text-base" data-fr="Années d'Expérience" data-en="Years of Experience">Années d'Expérience</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-2">50+</div>
-                    <p class="text-gray-300 text-sm sm:text-base" data-fr="Joueuses en Reconversion" data-en="Players in Transition">Joueuses en Reconversion</p>
-                </div>
-                <div class="text-center">
-                    <div class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-2">100%</div>
-                    <p class="text-gray-300 text-sm sm:text-base" data-fr="Transformation Garantie" data-en="Guaranteed Transformation">Transformation Garantie</p>
-                </div>
-            </div>
+  <!-- Story Section -->
+  <section class="py-16 sm:py-20 bg-gray-900">
+    <div class="container mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-3xl sm:text-4xl font-playfair font-bold mb-8">
+        <span class="gradient-text" data-fr="Salam," data-en="Salam,">Salam,</span><br>
+        <span data-fr="from the inside Out" data-en="from the inside Out">from the inside Out</span>
+      </h2>
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-12">
+          <div class="image-story">
+            <img src="https://i.imgur.com/XOkr1W1.jpeg" alt="Événement Élites au Féminin">
+          </div>
+          <div class="image-story">
+            <img src="https://i.imgur.com/cEwy6hg.jpeg" alt="Coaching Session">
+          </div>
+          <div class="image-story">
+            <img src="https://i.imgur.com/0My6QX9.jpeg" alt="Leadership Event">
+          </div>
         </div>
-    </section>
+        <p class="text-base sm:text-lg text-gray-300 mb-8 max-w-4xl mx-auto" data-fr="De mes débuts dans le football africain à la création des 'Élites au Féminin', mon parcours a été guidé par une mission : empowerer les femmes africaines à révéler leur potentiel de leadership." data-en="From my beginnings in African football to creating 'Les Élites au Féminin', my journey has been guided by one mission: empowering African women to reveal their leadership potential.">
+          De mes débuts dans le football africain à la création des "Élites au Féminin", mon parcours a été guidé par une mission : <strong class="gradient-text">empowerer</strong> les femmes africaines à révéler leur potentiel de leadership.
+        </p>
+        <button class="bg-transparent border-2 border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-black px-6 sm:px-8 py-3 rounded-lg font-semibold transition hover-transform text-sm sm:text-base">
+          <i class="fas fa-book-open mr-2"></i><span data-fr="Story time y'all" data-en="Story time y'all">Story time y'all</span>
+        </button>
+      </div>
+    </div>
+  </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-16 sm:py-20 bg-gray-800">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="section-number mb-8" data-fr=".03 // Elles m'ont fait confiance" data-en=".03 // They trusted me">.03 // Elles m'ont fait confiance</div>
-            <h2 class="text-3xl sm:text-4xl font-playfair font-bold mb-12 text-center">
-                <span data-fr="Témoignages de " data-en="Testimonials of ">Témoignages de </span><span class="gradient-text" data-fr="Transformation" data-en="Transformation">Transformation</span>
-            </h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-                <div class="elegant-card p-6 sm:p-8 rounded-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="image-testimonial mr-4 flex-shrink-0">
-                            <div class="image-placeholder w-full h-full rounded-full">
-                                <i class="fas fa-user text-2xl"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-sm sm:text-base">Sophie K.</h4>
-                            <p class="text-xs sm:text-sm text-gray-400" data-fr="Directrice Marketing" data-en="Marketing Director">Directrice Marketing</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 italic mb-4 text-sm sm:text-base" data-fr="Mariame a transformé ma façon de me présenter en public. Son coaching en étiquette m'a donné la confiance nécessaire pour exceller dans mes fonctions de direction." data-en="Mariame transformed the way I present myself in public. Her etiquette coaching gave me the confidence I needed to excel in my leadership roles.">
-                        "Mariame a transformé ma façon de me présenter en public. Son coaching en étiquette 
-                        m'a donné la confiance nécessaire pour exceller dans mes fonctions de direction."
-                    </p>
-                    <div class="flex text-yellow-400 text-sm">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-
-                <div class="elegant-card p-6 sm:p-8 rounded-lg">
-                    <div class="flex items-center mb-4">
-                        <div class="image-testimonial mr-4 flex-shrink-0">
-                            <div class="image-placeholder w-full h-full rounded-full">
-                                <i class="fas fa-user text-2xl"></i>
-                            </div>
-                        </div>
-                        <div>
-                            <h4 class="font-bold text-sm sm:text-base">Aminata D.</h4>
-                            <p class="text-xs sm:text-sm text-gray-400" data-fr="Entrepreneuse" data-en="Entrepreneur">Entrepreneuse</p>
-                        </div>
-                    </div>
-                    <p class="text-gray-300 italic mb-4 text-sm sm:text-base" data-fr="Grâce au programme Les Élites au Féminin, j'ai développé mon leadership et lancé ma propre entreprise. Mariame est une mentor exceptionnelle." data-en="Thanks to the Les Élites au Féminin program, I developed my leadership and launched my own business. Mariame is an exceptional mentor.">
-                        "Grâce au programme Les Élites au Féminin, j'ai développé mon leadership et 
-                        lancé ma propre entreprise. Mariame est une mentor exceptionnelle."
-                    </p>
-                    <div class="flex text-yellow-400 text-sm">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-            </div>
+  <!-- Services Section -->
+  <section id="services" class="py-16 sm:py-20 bg-gray-800">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="section-number mb-8" data-fr=".02 // Il est temps de changer votre vie" data-en=".02 // It's time to change your life">.02 // Il est temps de changer votre vie</div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-playfair font-bold mb-12 text-center leading-tight">
+        <span data-fr="Transforme ta vie en construisant" data-en="Transform your life by building">Transforme ta vie en construisant</span><br>
+        <span class="gradient-text" data-fr="un Leadership qui te ressemble" data-en="Leadership that reflects you">un Leadership qui te ressemble</span>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-16">
+        <div class="elegant-card p-6 sm:p-8 rounded-lg hover-transform text-center">
+          <div class="service-icon">
+            <i class="fas fa-gem"></i>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-playfair font-bold mb-4" data-fr="Coaching en Étiquette" data-en="Etiquette Coaching">Coaching en Étiquette</h3>
+          <p class="text-gray-300 mb-6 text-sm sm:text-base" data-fr="Maîtrise l'art du savoir-vivre et de l'élégance pour briller dans tous tes environnements professionnels et sociaux." data-en="Master the art of savoir-vivre and elegance to shine in all your professional and social environments.">
+            Maîtrise l'art du savoir-vivre et de l'élégance pour briller dans tous tes environnements professionnels et sociaux.
+          </p>
+          <ul class="text-xs sm:text-sm text-gray-400 space-y-2 text-left">
+            <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Protocole d'affaires" data-en="Business protocol">Protocole d'affaires</span></li>
+            <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Communication non-verbale" data-en="Non-verbal communication">Communication non-verbale</span></li>
+            <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Présence et charisme" data-en="Presence and charisma">Présence et charisme</span></li>
+            <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Élégance personnelle" data-en="Personal elegance">Élégance personnelle</span></li>
+          </ul>
         </div>
-    </section>
-
-    <!-- Free Resources Section -->
-    <section class="py-16 sm:py-20 bg-gray-900">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="text-center mb-16">
-                <div class="section-number mb-8" data-fr=".04 // Plongez dans les ressources gratuites" data-en=".04 // Dive into free resources">.04 // Plongez dans les ressources gratuites</div>
-                <h2 class="text-3xl sm:text-4xl font-playfair font-bold mb-8">
-                    <span class="gradient-text">On the House</span>
-                </h2>
-                <h3 class="text-xl sm:text-2xl mb-8" data-fr="Et apprends :" data-en="And learn:">Et apprends :</h3>
-            </div>
-            
-            <div class="max-w-6xl mx-auto">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-12">
-                    <div class="elegant-card p-4 sm:p-6 rounded-lg text-center">
-                        <div class="service-icon mb-4">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <p class="text-gray-300 text-sm sm:text-base" data-fr="Comment développer ta présence et ton charisme naturel" data-en="How to develop your natural presence and charisma">Comment développer ta présence et ton charisme naturel</p>
-                    </div>
-                    <div class="elegant-card p-4 sm:p-6 rounded-lg text-center">
-                        <div class="service-icon mb-4">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <p class="text-gray-300 text-sm sm:text-base" data-fr="Les secrets d'un personal branding authentique" data-en="The secrets of authentic personal branding">Les secrets d'un personal branding authentique</p>
-                    </div>
-                    <div class="elegant-card p-4 sm:p-6 rounded-lg text-center">
-                        <div class="service-icon mb-4">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <p class="text-gray-300 text-sm sm:text-base" data-fr="Les 5 piliers du leadership féminin moderne" data-en="The 5 pillars of modern feminine leadership">Les 5 piliers du leadership féminin moderne</p>
-                    </div>
-                    <div class="elegant-card p-4 sm:p-6 rounded-lg text-center">
-                        <div class="service-icon mb-4">
-                            <i class="fas fa-crown"></i>
-                        </div>
-                        <p class="text-gray-300 text-sm sm:text-base" data-fr="Comment maîtriser l'art du savoir-vivre professionnel" data-en="How to master the art of professional etiquette">Comment maîtriser l'art du savoir-vivre professionnel</p>
-                    </div>
-                </div>
-                
-                <div class="text-center">
-                    <button class="bg-yellow-600 hover:bg-yellow-700 text-black px-6 sm:px-8 py-3 rounded-lg font-semibold transition hover-transform text-sm sm:text-base">
-                        <i class="fas fa-download mr-2"></i><span data-fr="Saisis-le maintenant" data-en="Get it now">Saisis-le maintenant</span>
-                    </button>
-                </div>
-            </div>
+        <div class="elegant-card p-6 sm:p-8 rounded-lg hover-transform text-center">
+          <div class="service-icon">
+            <i class="fas fa-crown"></i>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-playfair font-bold mb-4" data-fr="Leadership Féminin" data-en="Feminine Leadership">Leadership Féminin</h3>
+          <p class="text-gray-300 mb-6 text-sm sm:text-base" data-fr="Développe ton leadership authentique et assume ton identité de femme leader dans un monde en transformation." data-en="Develop your authentic leadership and embrace your identity as a female leader in a transforming world.">
+            Développe ton leadership authentique et assume ton identité de femme leader dans un monde en transformation.
+          </p>
+          <ul class="text-xs sm:text-sm text-gray-400 space-y-2 text-left">
+            <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Développement du mindset" data-en="Mindset development">Développement du mindset</span></li>
+            <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Stratégies de communication" data-en="Communication strategies">Stratégies de communication</span></li>
+            <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Gestion des équipes" data-en="Team management">Gestion des équipes</span></li>
+            <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Vision et influence" data-en="Vision and influence">Vision et influence</span></li>
+          </ul>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 sm:py-20 bg-gray-800">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl sm:text-4xl font-playfair font-bold mb-8">
-                    <span data-fr="Prête à transformer ta " data-en="Ready to transform your ">Prête à transformer ta </span><span class="gradient-text" data-fr="Carrière" data-en="Career">Carrière</span> ?
-                </h2>
-                <p class="text-lg sm:text-xl text-gray-300 mb-12" data-fr="Rejoins les centaines de femmes qui ont déjà transformé leur vie professionnelle" data-en="Join the hundreds of women who have already transformed their professional lives">
-                    Rejoins les centaines de femmes qui ont déjà transformé leur vie professionnelle
-                </p>
-                
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-12">
-                    <div class="text-center">
-                        <div class="service-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3 class="font-bold mb-2 text-sm sm:text-base" data-fr="Email" data-en="Email">Email</h3>
-                        <p class="text-gray-400 text-xs sm:text-sm">contact@afriquettebydiam.com</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="service-icon">
-                            <i class="fab fa-instagram"></i>
-                        </div>
-                        <h3 class="font-bold mb-2 text-sm sm:text-base">Instagram</h3>
-                        <p class="text-gray-400 text-xs sm:text-sm">@afriquettebydiam</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="service-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <h3 class="font-bold mb-2 text-sm sm:text-base" data-fr="Consultation" data-en="Consultation">Consultation</h3>
-                        <p class="text-gray-400 text-xs sm:text-sm" data-fr="Rendez-vous sur demande" data-en="Appointment on request">Rendez-vous sur demande</p>
-                    </div>
-                </div>
-                
-                <div class="elegant-card p-6 sm:p-8 rounded-lg max-w-2xl mx-auto">
-                    <h3 class="text-xl sm:text-2xl font-playfair font-bold mb-6" data-fr="Réservez votre consultation gratuite" data-en="Book your free consultation">Réservez votre consultation gratuite</h3>
-                    <form class="space-y-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <input type="text" placeholder="Prénom" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none text-sm sm:text-base" data-placeholder-fr="Prénom" data-placeholder-en="First Name">
-                            <input type="text" placeholder="Nom" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none text-sm sm:text-base" data-placeholder-fr="Nom" data-placeholder-en="Last Name">
-                        </div>
-                        <input type="email" placeholder="Email" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none text-sm sm:text-base">
-                        <select class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none text-sm sm:text-base">
-                            <option data-fr="Choisissez votre besoin" data-en="Choose your need">Choisissez votre besoin</option>
-                            <option data-fr="Coaching en Étiquette" data-en="Etiquette Coaching">Coaching en Étiquette</option>
-                            <option data-fr="Leadership Féminin" data-en="Feminine Leadership">Leadership Féminin</option>
-                            <option data-fr="Relations Internationales" data-en="International Relations">Relations Internationales</option>
-                            <option data-fr="Programme complet" data-en="Complete Program">Programme complet</option>
-                        </select>
-                        <textarea placeholder="Décrivez votre situation actuelle" rows="4" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none text-sm sm:text-base" data-placeholder-fr="Décrivez votre situation actuelle" data-placeholder-en="Describe your current situation"></textarea>
-                        <button type="submit" class="w-full bg-yellow-600 hover:bg-yellow-700 text-black py-3 rounded-lg font-semibold transition text-sm sm:text-base">
-                            <i class="fas fa-paper-plane mr-2"></i><span data-fr="Réserver ma consultation gratuite" data-en="Book my free consultation">Réserver ma consultation gratuite</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
+        <div class="elegant-card p-6 sm:p-8 rounded-lg hover-transform text-center md:col-span-2 lg:col-span-1">
+          <div class="service-icon">
+            <i class="fas fa-globe-americas"></i>
+          </div>
+          <h3 class="text-xl sm:text-2xl font-playfair font-bold mb-4" data-fr="Relations Internationales" data-en="International Relations">Relations Internationales</h3>
+          <p class="text-gray-300 mb-6 text-sm sm:text-base" data-fr="Construis ton image de marque personnelle et développe ton réseau pour maximiser ton impact professionnel à l'échelle internationale." data-en="Build your personal brand and develop your network to maximize your professional impact on an international scale.">
+            Construis ton image de marque personnelle et développe ton réseau pour maximiser ton impact professionnel à l'échelle internationale.
+          </p>
+          <ul class="text-xs sm:text-sm text-gray-400 space-y-2 text-left">
+            <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Personal branding" data-en="Personal branding">Personal branding</span></li>
+            <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Media training" data-en="Media training">Media training</span></li>
+            <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Networking stratégique" data-en="Strategic networking">Networking stratégique</span></li>
+            <li><i class="fas fa-check text-yellow-400 mr-2"></i><span data-fr="Gestion de crise" data-en="Crisis management">Gestion de crise</span></li>
+          </ul>
         </div>
-    </section>
+      </div>
+      <div class="text-center">
+        <button class="bg-yellow-600 hover:bg-yellow-700 text-black px-6 sm:px-8 py-3 rounded-lg font-semibold transition hover-transform text-sm sm:text-base">
+          <i class="fas fa-calendar mr-2"></i><span data-fr="TRAVAILLONS ENSEMBLE" data-en="LET'S WORK TOGETHER">TRAVAILLONS ENSEMBLE</span>
+        </button>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="py-8 sm:py-12 bg-gray-900 border-t border-gray-700">
-        <div class="container mx-auto px-4 sm:px-6">
-            <div class="text-center">
-                <div class="text-2xl sm:text-3xl font-playfair font-bold gradient-text mb-4">
-                    AFRIQUETTE BY DIAM
-                </div>
-                <p class="text-gray-400 mb-6 text-sm sm:text-base" data-fr="Transforming lives through elegance, leadership, and authentic empowerment." data-en="Transforming lives through elegance, leadership, and authentic empowerment.">
-                    Transforming lives through elegance, leadership, and authentic empowerment.
-                </p>
-                <div class="flex justify-center space-x-4 sm:space-x-6 mb-8">
-                    <a href="https://www.instagram.com/afriquettebydiam/" target="_blank" class="text-gray-400 hover:text-yellow-400 transition">
-                        <i class="fab fa-instagram text-xl sm:text-2xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition">
-                        <i class="fab fa-linkedin text-xl sm:text-2xl"></i>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-yellow-400 transition">
-                        <i class="fab fa-facebook text-xl sm:text-2xl"></i>
-                    </a>
-                </div>
-                <p class="text-xs sm:text-sm text-gray-500">
-                    <span data-fr="© 2025 Afriquette by Diam. Tous droits réservés." data-en="© 2025 Afriquette by Diam. All rights reserved.">© 2025 Afriquette by Diam. Tous droits réservés.</span> | 
-                    <span class="gradient-text">Start small. Stay bold. Grow loud.</span>
-                </p>
-            </div>
+  <!-- Achievement Section -->
+  <section class="py-16 sm:py-20 bg-gray-900">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-playfair font-bold mb-4">
+          <span data-fr="du Chaos à l'" data-en="from Chaos to ">du Chaos à l'</span><span class="gradient-text" data-fr="Ordre" data-en="Order">Ordre</span>
+        </h2>
+        <p class="text-lg sm:text-xl text-gray-300" data-fr="Des résultats concrets qui parlent d'eux-mêmes" data-en="Concrete results that speak for themselves">Des résultats concrets qui parlent d'eux-mêmes</p>
+      </div>
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div class="text-center">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-2">900+</div>
+          <p class="text-gray-300 text-sm sm:text-base" data-fr="Femmes Empowered" data-en="Women Empowered">Femmes Empowered</p>
         </div>
-    </footer>
+        <div class="text-center">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-2">10+</div>
+          <p class="text-gray-300 text-sm sm:text-base" data-fr="Années d'Expérience" data-en="Years of Experience">Années d'Expérience</p>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-2">50+</div>
+          <p class="text-gray-300 text-sm sm:text-base" data-fr="Joueuses en Reconversion" data-en="Players in Transition">Joueuses en Reconversion</p>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl sm:text-4xl lg:text-5xl font-bold gradient-text mb-2">100%</div>
+          <p class="text-gray-300 text-sm sm:text-base" data-fr="Transformation Garantie" data-en="Guaranteed Transformation">Transformation Garantie</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Variables globales pour la traduction
-        let currentLang = 'fr';
-        
-        // Fonction pour basculer entre les langues
-        function toggleLanguage() {
-            currentLang = currentLang === 'fr' ? 'en' : 'fr';
-            translatePage(currentLang);
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-16 sm:py-20 bg-gray-800">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="section-number mb-8" data-fr=".03 // Elles m'ont fait confiance" data-en=".03 // They trusted me">.03 // Elles m'ont fait confiance</div>
+      <h2 class="text-3xl sm:text-4xl font-playfair font-bold mb-12 text-center">
+        <span data-fr="Témoignages de " data-en="Testimonials of ">Témoignages de </span><span class="gradient-text" data-fr="Transformation" data-en="Transformation">Transformation</span>
+      </h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+        <div class="elegant-card p-6 sm:p-8 rounded-lg">
+          <div class="flex items-center mb-4">
+            <div class="image-testimonial mr-4 flex-shrink-0">
+              <img src="https://i.imgur.com/placeholder-user.jpg" alt="Sophie K.">
+            </div>
+            <div>
+              <h4 class="font-bold text-sm sm:text-base">Sophie K.</h4>
+              <p class="text-xs sm:text-sm text-gray-400" data-fr="Directrice Marketing" data-en="Marketing Director">Directrice Marketing</p>
+            </div>
+          </div>
+          <p class="text-gray-300 italic mb-4 text-sm sm:text-base" data-fr="Mariame a transformé ma façon de me présenter en public. Son coaching en étiquette m'a donné la confiance nécessaire pour exceller dans mes fonctions de direction." data-en="Mariame transformed the way I present myself in public. Her etiquette coaching gave me the confidence I needed to excel in my leadership roles.">
+            "Mariame a transformé ma façon de me présenter en public. Son coaching en étiquette m'a donné la confiance nécessaire pour exceller dans mes fonctions de direction."
+          </p>
+          <div class="flex text-yellow-400 text-sm">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+        <div class="elegant-card p-6 sm:p-8 rounded-lg">
+          <div class="flex items-center mb-4">
+            <div class="image-testimonial mr-4 flex-shrink-0">
+              <img src="https://i.imgur.com/placeholder-user.jpg" alt="Aminata D.">
+            </div>
+            <div>
+              <h4 class="font-bold text-sm sm:text-base">Aminata D.</h4>
+              <p class="text-xs sm:text-sm text-gray-400" data-fr="Entrepreneuse" data-en="Entrepreneur">Entrepreneuse</p>
+            </div>
+          </div>
+          <p class="text-gray-300 italic mb-4 text-sm sm:text-base" data-fr="Grâce au programme Les Élites au Féminin, j'ai développé mon leadership et lancé ma propre entreprise. Mariame est une mentor exceptionnelle." data-en="Thanks to the Les Élites au Féminin program, I developed my leadership and launched my own business. Mariame is an exceptional mentor.">
+            "Grâce au programme Les Élites au Féminin, j'ai développé mon leadership et lancé ma propre entreprise. Mariame est une mentor exceptionnelle."
+          </p>
+          <div class="flex text-yellow-400 text-sm">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free Resources Section -->
+  <section class="py-16 sm:py-20 bg-gray-900">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="text-center mb-16">
+        <div class="section-number mb-8" data-fr=".04 // Plongez dans les ressources gratuites" data-en=".04 // Dive into free resources">.04 // Plongez dans les ressources gratuites</div>
+        <h2 class="text-3xl sm:text-4xl font-playfair font-bold mb-8">
+          <span class="gradient-text">On the House</span>
+        </h2>
+        <h3 class="text-xl sm:text-2xl mb-8" data-fr="Et apprends :" data-en="And learn:">Et apprends :</h3>
+      </div>
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-12">
+          <div class="elegant-card p-4 sm:p-6 rounded-lg text-center">
+            <div class="service-icon mb-4">
+              <i class="fas fa-lightbulb"></i>
+            </div>
+            <p class="text-gray-300 text-sm sm:text-base" data-fr="Comment développer ta présence et ton charisme naturel" data-en="How to develop your natural presence and charisma">Comment développer ta présence et ton charisme naturel</p>
+          </div>
+          <div class="elegant-card p-4 sm:p-6 rounded-lg text-center">
+            <div class="service-icon mb-4">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <p class="text-gray-300 text-sm sm:text-base" data-fr="Les secrets d'un personal branding authentique" data-en="The secrets of authentic personal branding">Les secrets d'un personal branding authentique</p>
+          </div>
+          <div class="elegant-card p-4 sm:p-6 rounded-lg text-center">
+            <div class="service-icon mb-4">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <p class="text-gray-300 text-sm sm:text-base" data-fr="Les 5 piliers du leadership féminin moderne" data-en="The 5 pillars of modern feminine leadership">Les 5 piliers du leadership féminin moderne</p>
+          </div>
+          <div class="elegant-card p-4 sm:p-6 rounded-lg text-center">
+            <div class="service-icon mb-4">
+              <i class="fas fa-crown"></i>
+            </div>
+            <p class="text-gray-300 text-sm sm:text-base" data-fr="Comment maîtriser l'art du savoir-vivre professionnel" data-en="How to master the art of professional etiquette">Comment maîtriser l'art du savoir-vivre professionnel</p>
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="bg-yellow-600 hover:bg-yellow-700 text-black px-6 sm:px-8 py-3 rounded-lg font-semibold transition hover-transform text-sm sm:text-base">
+            <i class="fas fa-download mr-2"></i><span data-fr="Saisis-le maintenant" data-en="Get it now">Saisis-le maintenant</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-16 sm:py-20 bg-gray-800">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl sm:text-4xl font-playfair font-bold mb-8">
+          <span data-fr="Prête à transformer ta " data-en="Ready to transform your ">Prête à transformer ta </span><span class="gradient-text" data-fr="Carrière" data-en="Career">Carrière</span> ?
+        </h2>
+        <p class="text-lg sm:text-xl text-gray-300 mb-12" data-fr="Rejoins les centaines de femmes qui ont déjà transformé leur vie professionnelle" data-en="Join the hundreds of women who have already transformed their professional lives">
+          Rejoins les centaines de femmes qui ont déjà transformé leur vie professionnelle
+        </p>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 mb-12">
+          <div class="text-center">
+            <div class="service-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h3 class="font-bold mb-2 text-sm sm:text-base" data-fr="Email" data-en="Email">Email</h3>
+            <p class="text-gray-400 text-xs sm:text-sm">contact@afriquettebydiam.com</p>
+          </div>
+          <div class="text-center">
+            <div class="service-icon">
+              <i class="fab fa-instagram"></i>
+            </div>
+            <h3 class="font-bold mb-2 text-sm sm:text-base">Instagram</h3>
+            <p class="text-gray-400 text-xs sm:text-sm">@afriquettebydiam</p>
+          </div>
+          <div class="text-center">
+            <div class="service-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <h3 class="font-bold mb-2 text-sm sm:text-base" data-fr="Consultation" data-en="Consultation">Consultation</h3>
+            <p class="text-gray-400 text-xs sm:text-sm" data-fr="Rendez-vous sur demande" data-en="Appointment on request">Rendez-vous sur demande</p>
+          </div>
+        </div>
+        <div class="elegant-card p-6 sm:p-8 rounded-lg max-w-2xl mx-auto">
+          <h3 class="text-xl sm:text-2xl font-playfair font-bold mb-6" data-fr="Réservez votre consultation gratuite" data-en="Book your free consultation">Réservez votre consultation gratuite</h3>
+          <form class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <input type="text" placeholder="Prénom" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none text-sm sm:text-base" data-placeholder-fr="Prénom" data-placeholder-en="First Name">
+              <input type="text" placeholder="Nom" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none text-sm sm:text-base" data-placeholder-fr="Nom" data-placeholder-en="Last Name">
+            </div>
+            <input type="email" placeholder="Email" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none text-sm sm:text-base">
+            <select class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none text-sm sm:text-base">
+              <option data-fr="Choisissez votre besoin" data-en="Choose your need">Choisissez votre besoin</option>
+              <option data-fr="Coaching en Étiquette" data-en="Etiquette Coaching">Coaching en Étiquette</option>
+              <option data-fr="Leadership Féminin" data-en="Feminine Leadership">Leadership Féminin</option>
+              <option data-fr="Relations Internationales" data-en="International Relations">Relations Internationales</option>
+              <option data-fr="Programme complet" data-en="Complete Program">Programme complet</option>
+            </select>
+            <textarea placeholder="Décrivez votre situation actuelle" rows="4" class="w-full p-3 bg-gray-700 rounded-lg border border-gray-600 focus:border-yellow-400 focus:outline-none text-sm sm:text-base" data-placeholder-fr="Décrivez votre situation actuelle" data-placeholder-en="Describe your current situation"></textarea>
+            <button type="submit" class="w-full bg-yellow-600 hover:bg-yellow-700 text-black py-3 rounded-lg font-semibold transition text-sm sm:text-base">
+              <i class="fas fa-paper-plane mr-2"></i><span data-fr="Réserver ma consultation gratuite" data-en="Book my free consultation">Réserver ma consultation gratuite</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 sm:py-12 bg-gray-900 border-t border-gray-700">
+    <div class="container mx-auto px-4 sm:px-6">
+      <div class="text-center">
+        <div class="text-2xl sm:text-3xl font-playfair font-bold gradient-text mb-4">AFRIQUETTE BY DIAM</div>
+        <p class="text-gray-400 mb-6 text-sm sm:text-base" data-fr="Transforming lives through elegance, leadership, and authentic empowerment." data-en="Transforming lives through elegance, leadership, and authentic empowerment.">
+          Transforming lives through elegance, leadership, and authentic empowerment.
+        </p>
+        <div class="flex justify-center space-x-4 sm:space-x-6 mb-8">
+          <a href="https://www.instagram.com/afriquettebydiam/" target="_blank" class="text-gray-400 hover:text-yellow-400 transition">
+            <i class="fab fa-instagram text-xl sm:text-2xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-yellow-400 transition">
+            <i class="fab fa-linkedin text-xl sm:text-2xl"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-yellow-400 transition">
+            <i class="fab fa-facebook text-xl sm:text-2xl"></i>
+          </a>
+        </div>
+        <p class="text-xs sm:text-sm text-gray-500">
+          <span data-fr="© 2025 Afriquette by Diam. Tous droits réservés." data-en="© 2025 Afriquette by Diam. All rights reserved.">© 2025 Afriquette by Diam. Tous droits réservés.</span> | <span class="gradient-text">Start small. Stay bold. Grow loud.</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    let currentLang = 'fr';
+
+    function toggleLanguage() {
+      currentLang = currentLang === 'fr' ? 'en' : 'fr';
+      translatePage(currentLang);
+    }
+
+    function translatePage(lang) {
+      const elements = document.querySelectorAll('[data-fr][data-en]');
+      elements.forEach(element => {
+        const text = element.getAttribute('data-' + lang);
+        if (text) element.textContent = text;
+      });
+
+      const placeholders = document.querySelectorAll('[data-placeholder-fr][data-placeholder-en]');
+      placeholders.forEach(element => {
+        const placeholder = element.getAttribute('data-placeholder-' + lang);
+        if (placeholder) element.placeholder = placeholder;
+      });
+
+      const translateBtn = document.querySelector('.translate-btn');
+      translateBtn.title = lang === 'fr' ? 'Switch to English' : 'Passer au français';
+    }
+
+    function toggleMobileMenu() {
+      const mobileMenu = document.querySelector('.mobile-menu');
+      mobileMenu.classList.toggle('active');
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-        
-        // Fonction pour traduire la page
-        function translatePage(lang) {
-            const elements = document.querySelectorAll('[data-fr][data-en]');
-            elements.forEach(element => {
-                const text = element.getAttribute('data-' + lang);
-                if (text) {
-                    element.textContent = text;
-                }
-            });
-            
-            // Traduire les placeholders
-            const placeholders = document.querySelectorAll('[data-placeholder-fr][data-placeholder-en]');
-            placeholders.forEach(element => {
-                const placeholder = element.getAttribute('data-placeholder-' + lang);
-                if (placeholder) {
-                    element.placeholder = placeholder;
-                }
-            });
-            
-            // Mettre à jour le bouton de langue
-            const translateBtn = document.querySelector('.translate-btn');
-            translateBtn.innerHTML = lang === 'fr' ? '<i class="fas fa-globe"></i>' : '<i class="fas fa-globe"></i>';
-            translateBtn.title = lang === 'fr' ? 'Switch to English' : 'Passer au français';
-        }
+      });
+    });
 
-        // Menu mobile
-        function toggleMobileMenu() {
-            const mobileMenu = document.querySelector('.mobile-menu');
-            mobileMenu.classList.toggle('active');
-        }
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 100) {
+        header.classList.add('bg-opacity-95');
+      } else {
+        header.classList.remove('bg-opacity-95');
+      }
+    });
 
-        // Smooth scrolling pour les liens de navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    document.addEventListener('click', function(e) {
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const menuButton = document.querySelector('button[onclick="toggleMobileMenu()"]');
+      if (mobileMenu.classList.contains('active') && !mobileMenu.contains(e.target) && !menuButton.contains(e.target)) {
+        toggleMobileMenu();
+      }
+    });
 
-        // Effet de scroll sur le header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.classList.add('bg-opacity-95');
-            } else {
-                header.classList.remove('bg-opacity-95');
-            }
-        });
-
-        // Fermer le menu mobile en cliquant à l'extérieur
-        document.addEventListener('click', function(e) {
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const menuButton = document.querySelector('button[onclick="toggleMobileMenu()"]');
-            
-            if (mobileMenu.classList.contains('active') && 
-                !mobileMenu.contains(e.target) && 
-                !menuButton.contains(e.target)) {
-                toggleMobileMenu();
-            }
-        });
-
-        // Initialisation
-        document.addEventListener('DOMContentLoaded', function() {
-            // Langue par défaut
-            translatePage('fr');
-        });
-    </script>
+    document.addEventListener('DOMContentLoaded', function() {
+      translatePage('fr');
+    });
+  </script>
 </body>
 </html>
